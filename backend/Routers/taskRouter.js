@@ -7,6 +7,7 @@ router.get('/',taskController.getAllTasks)
 router.post('/addTask',taskController.insertTask)
 router.put('/updateTask/:id',taskController.UpdateTask)
 router.delete('/deleteTask/:id',taskController.DeleteTask)
+router.put('/updateCategory/:id',taskController.updateCategory)
 
 
 

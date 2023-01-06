@@ -87,3 +87,23 @@ exports.DeleteTask = async (req,res,next) => {
 
     })
 }
+
+
+
+
+
+
+exports.updateCategory = async (req,res,next) => {
+  let taskid = req.params.id
+
+  await conn.query(`UPDATE tasks SET category = ${req.body.category} WHERE id = ${taskid}`,function(err,result) {
+    if (err) throw err;
+    res.status(201).json({
+        status: "success",
+        message: "task category updated",
+      });
+  })
+ 
+
+
+}

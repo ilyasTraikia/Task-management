@@ -26,3 +26,12 @@ Content-Type: application/json
 }
 ###
 DELETE http://localhost:4000/tasks/deleteTask/63
+###
+
+PUT http://localhost:4000/tasks/updateCategory/71
+Content-Type: application/json
+
+{
+   "category" : 1
+}
+

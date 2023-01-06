@@ -26,5 +26,5 @@
 }
 
 .dropDown-items {
-    @apply border-b-[0.1px] border-solid border-b-[rgba(0,0,0,0.1)] transition-colors pl-[3px]
+    @apply border-b-[0.1px] border-solid border-b-[rgba(0,0,0,0.1)] transition-colors pl-[3px] p-1
 }

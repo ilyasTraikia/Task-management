@@ -1,7 +1,18 @@
-import React, { useState } from 'react'
-import { Form } from 'react-router-dom'
+import axios from 'axios'
+import React, { useState,useEffect } from 'react'
+import { Form, redirect } from 'react-router-dom'
 import {points} from '../assets'
 import './style/styles.css'
+
+
+export  function action({params}) {
+    axios.put(`http://localhost:4000/tasks/updateCategory/${params.taskId}`,{
+      category: params.cateId
+    })
+    return redirect('/board')
+}
+
+
 
 export default function TodoComponent(props) {
 
@@ -9,9 +20,15 @@ export default function TodoComponent(props) {
 
   
 
-  function deleteTask() {
-    console.log("delete "+props.task.id)
-  }
+
+
+
+
+
+  
+  
+
+
 
 
 
@@ -49,16 +66,16 @@ export default function TodoComponent(props) {
           <button className='m-[4px] mb-[12px] mx-[6px]'><img src={points} alt="points" /></button>
          
           
-          <div className={`absolute border-[0.1px] bg-white shadow-dropShadow  border-[rgba(0,0,0,0.1)]   w-[69px] h-[75px]   ${!dropdownVisible && 'hidden'}`}>
+          <div  className={`absolute border-[0.1px] bg-white shadow-dropShadow  border-[rgba(0,0,0,0.1)]   w-[69px] h-[96px]   ${!dropdownVisible && 'hidden'}`}>
             <div className='flex flex-col p-[4px] justify-between text-[14px] font-normal  h-full'>
               <div className=' dropDown-items hover:bg-slate-100 ' onClick={()=> {console.log("update");}}>update</div>
 
 
-              <div className='dropdown dropDown-items hover:bg-slate-100' onClick={()=> {console.log("move");}}>
+              <div className='dropdown dropDown-items hover:bg-slate-100'>
                 move to
                 <div className="dropdown-content">
-                     <div className='dropDown-items hover:bg-slate-100'>in progress</div>
-                     <div className='dropDown-items hover:bg-slate-100'>done</div>
+                     <Form  method='post' action={props.task.id+ "/update/"+Object.keys(props.othercat)[0]} className='dropDown-items w-full h-full hover:bg-slate-100'><button className='w-full h-full' type='submit'>{props.othercat[Object.keys(props.othercat)[0]]}</button></Form>
+                     <Form  method='post' action={props.task.id+ "/update/"+Object.keys(props.othercat)[1]} className='dropDown-items w-full h-full hover:bg-slate-100'><button className='w-full h-full' type='submit'>{props.othercat[Object.keys(props.othercat)[1]]}</button></Form>
                 </div>
               </div>
 

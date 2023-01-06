@@ -68,9 +68,9 @@ export default function Board() {
 
         {/* Main section */}
         <div className='flex flex-col  md:flex-row md:space-x-5 md:space-y-0 space-y-5  mt-[36px] '>
-           <TodoCategory category="To do" cate={1}  tasks= {tasksCatOne}/>
-           <TodoCategory category="In progress" cate={2} tasks = {tasksCatTwo} />
-           <TodoCategory category="Done" cate={3}  tasks = {tasksCatThree}   />
+           <TodoCategory category="To do" cate={1} otherCate = {{2:"in progress",3:"done"}}  tasks= {tasksCatOne}/>
+           <TodoCategory category="In progress" cate={2} otherCate = {{1:"to do",3:"done"}} tasks = {tasksCatTwo} />
+           <TodoCategory category="Done" cate={3} otherCate = {{1:"to do",2:"in progress"}}  tasks = {tasksCatThree}   />
         </div>
 
 

@@ -57,7 +57,7 @@ export default function TodoCategory(props) {
        
             {props.tasks.map((e)=> {
 
-            return <TodoComponent task = {e} key={e.id} />
+            return <TodoComponent task = {e} key={e.id} othercat= {props.otherCate} />
 
             })}
           
