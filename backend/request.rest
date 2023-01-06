@@ -1,0 +1,28 @@
+GET http://localhost:4000/tasks/
+###
+POST http://localhost:4000/tasks/addTask 
+Content-Type: application/json
+
+{
+    "title" : "title",
+    "heading": "heading",
+    "content" : "sdlkj,qsmldjqsjdqslkjndkoslnhfkzedjfholkfhjglsdkfhgjlksdhfsdukhfljsdhfokujrhgljkdfg",
+    "tagColor" : "green",
+    "created_at": "2022-12-29",
+    "category" : 1
+}
+###
+
+PUT http://localhost:4000/tasks/updateTask/63
+Content-Type: application/json
+
+{
+    "title" : "ttt",
+    "heading": "hHEADINGUPDATED",
+    "content" : "contentUpdated",
+    "tagColor" : "red",
+    "created_at": "2022-12-29",
+    "category" : 1
+}
+###
+DELETE http://localhost:4000/tasks/deleteTask/63
