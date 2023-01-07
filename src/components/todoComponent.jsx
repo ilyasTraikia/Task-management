@@ -1,8 +1,11 @@
 import axios from 'axios'
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect} from 'react'
 import { Form, redirect } from 'react-router-dom'
 import {points} from '../assets'
+import UpdateTask from './UpdateTask'
 import './style/styles.css'
+
+
 
 
 export  function action({params}) {
@@ -14,19 +17,24 @@ export  function action({params}) {
 
 
 
+
+
+
 export default function TodoComponent(props) {
 
   const [dropdownVisible,setDropdownVisible] = useState(false)
+  const [isUpdateTaskModalVisible,setIsUpdateTaskModalVisible] = useState(false);
 
   
 
 
+  function changeUpdateModalState() {
+    setIsUpdateTaskModalVisible(false)
+  }
 
 
 
 
-  
-  
 
 
 
@@ -66,9 +74,9 @@ export default function TodoComponent(props) {
           <button className='m-[4px] mb-[12px] mx-[6px]'><img src={points} alt="points" /></button>
          
           
-          <div  className={`absolute border-[0.1px] bg-white shadow-dropShadow  border-[rgba(0,0,0,0.1)]   w-[69px] h-[96px]   ${!dropdownVisible && 'hidden'}`}>
+          <div id='DropDownMenu'  className={`absolute border-[0.1px] bg-white shadow-dropShadow  border-[rgba(0,0,0,0.1)]   w-[69px] h-[96px]   ${!dropdownVisible && 'hidden'}`}>
             <div className='flex flex-col p-[4px] justify-between text-[14px] font-normal  h-full'>
-              <div className=' dropDown-items hover:bg-slate-100 ' onClick={()=> {console.log("update");}}>update</div>
+              <div className=' dropDown-items hover:bg-slate-100 ' onClick={()=> {setIsUpdateTaskModalVisible(true)}}>update</div>
 
 
               <div className='dropdown dropDown-items hover:bg-slate-100'>
@@ -93,6 +101,11 @@ export default function TodoComponent(props) {
 
 
 
+       {/* The update  Modal  */}
+       <div id='updateModal' style={{display:isUpdateTaskModalVisible? 'flex' : 'none'}}  className="modal">
+       {/* Modal content */}
+         <UpdateTask task={props.task}  updateModalState={changeUpdateModalState} />
+       </div>
 
 
 

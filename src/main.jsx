@@ -8,6 +8,7 @@ import {loader as BoardTasksLoader} from './routes/Board'
 import {action as taskCreateAction} from './components/AddtodoModal'
 import {action as destroyAction} from './routes/destroy'
 import {action as updateAction} from './components/todoComponent'
+import {action as updateTaskAction} from './components/UpdateTask'
 
 
 
@@ -35,7 +36,11 @@ const router = createBrowserRouter([
               {
                 path:":taskId/update/:cateId",
                 action:updateAction
-              }
+              },
+               {
+                path: "updateTask/:taskId",
+                action: updateTaskAction
+               }
           ]
         },
         {

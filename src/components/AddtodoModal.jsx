@@ -14,7 +14,9 @@ export async function action({request,params}) {
       const color = formData.get('color')
       const date = new Date().toJSON().slice(0, 10)
 
-      axios.post('http://localhost:4000/tasks/addTask', {
+      console.log("Post action executed")
+
+      await axios.post('http://localhost:4000/tasks/addTask', {
            title:title,
            heading:heading,
            content:content,
@@ -22,12 +24,7 @@ export async function action({request,params}) {
            created_at:date,
            category:element[1].id
           })
-          .then(function (response) {
-            document.getElementById("myModal").style.display = "none" 
-          })
-          .catch(function (error) {
-           console.log(error);
-          });
+         
    
           return redirect('/board');
 }
@@ -64,7 +61,7 @@ export default function AddtodoModal() {
 
       {/* the title of the todo */}
         <div className='mt-[11px] flex flex-row items-center space-x-3'>
-         <div className='font-medium text-lg'>The title of your todo:</div>
+         <div className='font-medium text-lg'>The title of your task:</div>
          <input name='title' type="text" placeholder='title' className='pl-2 outline-none' />
         </div>
 
