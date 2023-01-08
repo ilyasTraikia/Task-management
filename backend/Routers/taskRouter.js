@@ -4,6 +4,7 @@ const taskController  = require('../Controllers/taskController')
 
 
 router.get('/',taskController.getAllTasks)
+router.get('/:searchParams',taskController.getTaskBySearchParams)
 router.post('/addTask',taskController.insertTask)
 router.put('/updateTask/:id',taskController.UpdateTask)
 router.delete('/deleteTask/:id',taskController.DeleteTask)

@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { useLoaderData } from 'react-router-dom'
+import { Form, useLoaderData, useNavigation, useSubmit } from 'react-router-dom'
 import './style/style.css'
 import { search,arrowDown } from '../assets'
 import { TodoCategory,AddtodoModal} from '../components/index/index'
@@ -8,10 +8,18 @@ import { TodoCategory,AddtodoModal} from '../components/index/index'
 
 
 
-export async function loader() {
+export async function loader({request}) {
+    const url = new URL(request.url)
+    const searchParams = url.searchParams.get("search")
+    if(searchParams) {
+      const response = await axios.get(`http://localhost:4000/tasks/${searchParams}`)
+      return {response,searchParams}
+    } else {
+      const response = await axios.get(`http://localhost:4000/tasks/`)
+      return {response,searchParams}
+    }
    
-    const response = await axios.get('http://localhost:4000/tasks/')
-    return response
+   
 }
 
 
@@ -21,12 +29,20 @@ export async function loader() {
 
 export default function Board() {
 
+  
+   const {response,searchParams} = useLoaderData()
+   const submit = useSubmit()
+ 
 
-   const tasks = useLoaderData()
+  
+
+
+
+
    // filtering data
-   var tasksCatOne = tasks.data.data.filter(function(el){return el.category ==  1})
-   var tasksCatTwo = tasks.data.data.filter(function(el){return el.category ==  2})
-   var tasksCatThree = tasks.data.data.filter(function(el){return el.category ==  3})
+   var tasksCatOne = response.data.data.filter(function(el){return el.category ==  1})
+   var tasksCatTwo = response.data.data.filter(function(el){return el.category ==  2})
+   var tasksCatThree = response.data.data.filter(function(el){return el.category ==  3})
 
 
 
@@ -36,12 +52,16 @@ export default function Board() {
 
         {/* Search section */}
         <div>
-          <form action="#" className='flex flex-row'>
-            <input className='order-2 ml-4 outline-none' type="search" placeholder='Search' />
+          <Form role="search"  className='flex flex-row'>
+            <input className='order-2 ml-4 outline-none' autoFocus defaultValue={searchParams} id='search' name='search' type="search" placeholder='Search' onChange={(event)=> {
+               const isFirstSearch = searchParams == null;
+              submit(event.currentTarget.form,{
+                replace:!isFirstSearch
+              })
+            }} />
             <button className='order-1' type='submit'><img src={search} alt="search" /></button>
-          </form>
+          </Form>
         </div>
-
 
 
 

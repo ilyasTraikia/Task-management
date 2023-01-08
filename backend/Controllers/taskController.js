@@ -1,13 +1,34 @@
 const conn = require('../Services/db')
 
 
-exports.getAllTasks = async (req,res,next) => {
-   await conn.query("SELECT * FROM tasks",function(err,data,fields){
-    res.status(200).json({
-        status:"success",
-        data:data
-    })
-   })
+exports.getAllTasks =  (req,res,next) => {
+  
+
+  
+         conn.query("SELECT * FROM tasks",function(err,data,fields){
+            res.status(200).json({
+                status:"success",
+                data:data
+            })
+           })
+
+  
+}
+
+
+
+
+
+exports.getTaskBySearchParams = (req,res,next) => {
+    var searchParams = req.params.searchParams
+
+
+    conn.query(`SELECT * FROM tasks WHERE heading LIKE '%${searchParams}%'`,function(err,data,fields){
+       res.status(200).json({
+           status:"success",
+           data:data
+       })
+      })
 }
 
 
