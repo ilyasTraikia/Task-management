@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App/App'
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
-import {Board,ErrorPage,Analytics,Dashboard,Settings} from './routes/index'
+import {Board,ErrorPage,Analytics,Dashboard,Settings,PageIndex} from './routes/index'
 import './style/index.css'
 import {loader as BoardTasksLoader} from './routes/Board'
 import {action as taskCreateAction} from './components/AddtodoModal'
@@ -20,8 +20,7 @@ const router = createBrowserRouter([
       children: [
         {
           index:true,
-          element:<Board />,
-          loader:BoardTasksLoader
+          element:<PageIndex/>
         },
         {
           path:"board",

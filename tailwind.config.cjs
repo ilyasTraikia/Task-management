@@ -11,6 +11,7 @@ module.exports = {
       },
       boxShadow: {
         'dropShadow': '0px 2px 2px rgba(0, 0, 0, 0.25)',
+        'FilterShadow' : '0px 5px 5px rgba(0, 0, 0, 0.25)'
       }
     },
   },

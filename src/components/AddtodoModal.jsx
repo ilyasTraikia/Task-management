@@ -14,7 +14,7 @@ export async function action({request,params}) {
       const color = formData.get('color')
       const date = new Date().toJSON().slice(0, 10)
 
-      console.log("Post action executed")
+     
 
       await axios.post('http://localhost:4000/tasks/addTask', {
            title:title,

@@ -5,7 +5,7 @@ import './style/styles.css'
 
 export default function TodoCategory(props) {
 
-  //console.log(props.tasks)
+
 
   useEffect(()=> {
 
@@ -35,42 +35,89 @@ export default function TodoCategory(props) {
       modal.style.display = "block"
   }
 
+  if(props.tasks.length == 0) {
 
-  return (
+    return (
 
-    <div className='flex flex-col space-y-[24px] w-full md:w-[40%] p-[24px] bg-[#EEF2F5] transition-all  duration-300'>
-      {/* todo category heading */}
-      <div className='flex flex-row justify-between items-center'>
-          <div className='font-medium text-base'>{props.category}</div>
-          <div className='flex flex-row space-x-4'>
-            <button onClick={openModal}><img src={add} alt="add" /></button>
-            <button><img src={points} alt="more" /></button>
-          </div>
-      </div>
-
-
-
-
-
-     {/* The todo component */}
-      <div className='flex flex-col space-y-4 transition-all  duration-300'>
-       
-            {props.tasks.map((e)=> {
-
-            return <TodoComponent task = {e} key={e.id} othercat= {props.otherCate} />
-
-            })}
-          
+      <div className='flex flex-col space-y-[24px] w-full md:w-[40%] p-[24px] bg-[#EEF2F5] transition-all  duration-300'>
+        {/* todo category heading */}
+        <div className='flex flex-row justify-between items-center'>
+            <div className='font-medium text-base'>{props.category}</div>
+            <div className='flex flex-row space-x-4'>
+              <button onClick={openModal}><img src={add} alt="add" /></button>
+              <button><img src={points} alt="more" /></button>
+            </div>
+        </div>
+  
+  
+  
+  
+     
+       {/* The todo component */}
+        <div className='flex justify-center items-center space-y-4 transition-all  duration-300'>
          
-         
-        
-      </div>
-
-
-
       
+           <div className='text-base italic text-black/50 pt-4 mt-4'>There are no tasks to be shown here</div>
+           
+          
+        </div>
+  
+  
+  
+        
+  
+  
+      </div>
+    )
 
 
-    </div>
-  )
+  } else {
+
+    return (
+
+      <div className='flex flex-col space-y-[24px] w-full md:w-[40%] p-[24px] bg-[#EEF2F5] transition-all  duration-300'>
+        {/* todo category heading */}
+        <div className='flex flex-row justify-between items-center'>
+            <div className='font-medium text-base'>{props.category}</div>
+            <div className='flex flex-row space-x-4'>
+              <button onClick={openModal}><img src={add} alt="add" /></button>
+              <button><img src={points} alt="more" /></button>
+            </div>
+        </div>
+  
+  
+  
+  
+     
+       {/* The todo component */}
+        <div className='flex flex-col space-y-4 transition-all  duration-300'>
+         
+         
+              {props.tasks.map((e)=> {
+              return <TodoComponent task = {e} key={e.id} othercat= {props.otherCate} />
+              })}
+            
+           
+           
+          
+        </div>
+  
+  
+  
+        
+  
+  
+      </div>
+    )
+
+
+
+
+
+
+
+
+
+  }
+  
 }
