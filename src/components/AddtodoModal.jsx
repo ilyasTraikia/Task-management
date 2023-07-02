@@ -16,7 +16,7 @@ export async function action({request,params}) {
 
      
 
-      await axios.post('http://localhost:4000/tasks/addTask', {
+      await axios.post('https://task-backend-api.onrender.com/tasks/addTask', {
            title:title,
            heading:heading,
            content:content,
