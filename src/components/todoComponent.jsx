@@ -9,7 +9,7 @@ import './style/styles.css'
 
 
 export  function action({params}) {
-    axios.put(`http://localhost:4000/tasks/updateCategory/${params.taskId}`,{
+    axios.put(`https://task-backend-api.onrender.com/tasks/updateCategory/${params.taskId}`,{
       category: params.cateId
     })
     return redirect('/board')
