@@ -17,7 +17,7 @@ export async function action({request,params}) {
     const taskCategory = formData.get('taskCategory')
     const date = new Date().toJSON().slice(0, 10)
 
-   await axios.put(`http://localhost:4000/tasks/updateTask/${taskId}`, {
+   await axios.put(`https://task-backend-api.onrender.com/tasks/updateTask/${taskId}`, {
          title:title,
          heading:heading,
          content:content,
