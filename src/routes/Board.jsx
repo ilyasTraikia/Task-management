@@ -12,10 +12,10 @@ export async function loader({request}) {
     const url = new URL(request.url)
     const searchParams = url.searchParams.get("search")
     if(searchParams) {
-      const response = await axios.get(`http://localhost:4000/tasks/${searchParams}`)
+      const response = await axios.get(`https://task-backend-api.onrender.com/tasks/${searchParams}`)
       return {response,searchParams}
     } else {
-      const response = await axios.get(`http://localhost:4000/tasks/`)
+      const response = await axios.get(`https://task-backend-api.onrender.com/tasks/`)
       return {response,searchParams}
     }
  
