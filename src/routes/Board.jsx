@@ -13,10 +13,10 @@ export async function loader({request}) {
     const url = new URL(request.url)
     const searchParams = url.searchParams.get("search")
     if(searchParams) {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}tasks/${searchParams}`)
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/tasks/${searchParams}`)
       return {response,searchParams}
     } else {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}tasks/`)
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/tasks/`)
       return {response,searchParams}
     }
  
