@@ -7,6 +7,7 @@ import axios from 'axios'
 
 
 
+
 export async function action({request,params}) {
     const formData = await request.formData();
     const title = formData.get('title')
@@ -17,7 +18,7 @@ export async function action({request,params}) {
     const taskCategory = formData.get('taskCategory')
     const date = new Date().toJSON().slice(0, 10)
 
-   await axios.put(`https://task-backend-api.onrender.com/tasks/updateTask/${taskId}`, {
+   await axios.put(`${import.meta.env.VITE_API_URL}/tasks/updateTask/${taskId}`, {
          title:title,
          heading:heading,
          content:content,

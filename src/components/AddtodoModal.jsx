@@ -5,6 +5,7 @@ import axios  from 'axios'
 
 
 
+
 export async function action({request,params}) {
       const formData = await request.formData();
       const element = document.getElementsByTagName("Form");
@@ -16,7 +17,7 @@ export async function action({request,params}) {
 
      
 
-      await axios.post('https://task-backend-api.onrender.com/tasks/addTask', {
+      await axios.post(`${import.meta.env.VITE_API_URL}/tasks/addTask`, {
            title:title,
            heading:heading,
            content:content,

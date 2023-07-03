@@ -8,14 +8,15 @@ import { TodoCategory,AddtodoModal} from '../components/index/index'
 
 
 
+
 export async function loader({request}) {
     const url = new URL(request.url)
     const searchParams = url.searchParams.get("search")
     if(searchParams) {
-      const response = await axios.get(`https://task-backend-api.onrender.com/tasks/${searchParams}`)
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/tasks/${searchParams}`)
       return {response,searchParams}
     } else {
-      const response = await axios.get(`https://task-backend-api.onrender.com/tasks/`)
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/tasks/`)
       return {response,searchParams}
     }
  
@@ -29,6 +30,8 @@ export async function loader({request}) {
 
 
 export default function Board() {
+
+
 
   //  const [isFilterDropDownVisible,setIsFilterDropDownVisible] = useState(false)
    const {response,searchParams} = useLoaderData()
