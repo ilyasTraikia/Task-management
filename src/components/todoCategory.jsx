@@ -45,7 +45,7 @@ export default function TodoCategory(props) {
             <div className='font-medium text-base'>{props.category}</div>
             <div className='flex flex-row space-x-4'>
               <button onClick={openModal}><img src={add} alt="add" /></button>
-              <button><img src={points} alt="more" /></button>
+              {/* <button><img src={points} alt="more" /></button> */}
             </div>
         </div>
   
@@ -81,7 +81,7 @@ export default function TodoCategory(props) {
             <div className='font-medium text-base'>{props.category}</div>
             <div className='flex flex-row space-x-4'>
               <button onClick={openModal}><img src={add} alt="add" /></button>
-              <button><img src={points} alt="more" /></button>
+              {/* <button><img src={points} alt="more" /></button> */}
             </div>
         </div>
   

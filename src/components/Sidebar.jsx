@@ -43,7 +43,7 @@ export default function Sidebar() {
   
         {/* sidebar items */}
        
-         <NavLink onClick={()=> {setSidebarOpened(false)}} to={`/dashboard`} className={({isActive,isPending})=>  
+         {/* <NavLink onClick={()=> {setSidebarOpened(false)}} to={`/dashboard`} className={({isActive,isPending})=>  
           isActive
           ?"mt-[55px] active-sidebar-items-text"
           :"mt-[55px] inactive-sidebar-items-text"
@@ -51,7 +51,7 @@ export default function Sidebar() {
            >
            <img src={grid} alt="grid" />
            <span>Dashboard</span>
-         </NavLink>
+         </NavLink> */}
        
 
      
@@ -59,8 +59,8 @@ export default function Sidebar() {
         
          <NavLink onClick={()=> {setSidebarOpened(false)}} to={`/board`} className={({isActive,isPending})=>  
           isActive
-          ?"mt-7 active-sidebar-items-text"
-          :"mt-7 inactive-sidebar-items-text"
+          ?"mt-[60px] active-sidebar-items-text"
+          :"mt-[60px] inactive-sidebar-items-text"
            }
            >
            <img src={layout} alt="layout" />
@@ -124,7 +124,7 @@ export default function Sidebar() {
   
         {/* sidebar items */}
        
-         <NavLink to={`/dashboard`} className={({isActive,isPending})=>  
+         {/* <NavLink to={`/dashboard`} className={({isActive,isPending})=>  
           isActive
           ?"mt-[55px] active-sidebar-items-text"
           :"mt-[55px] inactive-sidebar-items-text"
@@ -132,7 +132,7 @@ export default function Sidebar() {
            >
            <img src={grid} alt="grid" />
            <span>Dashboard</span>
-         </NavLink>
+         </NavLink> */}
        
 
      
@@ -140,8 +140,8 @@ export default function Sidebar() {
         
          <NavLink to={`/board`} className={({isActive,isPending})=>  
           isActive
-          ?"mt-7 active-sidebar-items-text"
-          :"mt-7 inactive-sidebar-items-text"
+          ?"mt-[60px] active-sidebar-items-text"
+          :"mt-[60px] inactive-sidebar-items-text"
            }
            >
            <img src={layout} alt="layout" />
