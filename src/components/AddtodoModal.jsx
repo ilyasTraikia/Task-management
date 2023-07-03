@@ -17,7 +17,7 @@ export async function action({request,params}) {
 
      
 
-      await axios.post(`${import.meta.env.VITE_API_URL}/tasks/addTask`, {
+      await axios.post(`${import.meta.env.VITE_API_URL}tasks/addTask`, {
            title:title,
            heading:heading,
            content:content,

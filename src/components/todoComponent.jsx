@@ -10,7 +10,7 @@ import './style/styles.css'
 
 
 export  function action({params}) {
-    axios.put(`${import.meta.env.VITE_API_URL}/tasks/updateCategory/${params.taskId}`,{
+    axios.put(`${import.meta.env.VITE_API_URL}tasks/updateCategory/${params.taskId}`,{
       category: params.cateId
     })
     return redirect('/board')
